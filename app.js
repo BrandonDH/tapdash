@@ -37,7 +37,7 @@ const beers = [
 function updateTapRemainingTime(tapItem, remainingTimeInSeconds) {
   const minutes = Math.floor(remainingTimeInSeconds / 60);
   const seconds = remainingTimeInSeconds % 60;
-  tapItem.innerHTML = `🍺 <span class="td-beer-name">${tapItem.dataset.beerName}</span> <em>${tapItem.dataset.beerStyle}</em> </br> Keg kicks in ${minutes} min ${seconds} sec <hr>`;
+  tapItem.innerHTML = `<span class="td-beer-name">${tapItem.dataset.beerName}</span> <em>${tapItem.dataset.beerStyle}</em> </br> Keg kicks in ${minutes} min ${seconds} sec 🏁 <hr>`;
 }
 
 // Function to update the tap durations every second
