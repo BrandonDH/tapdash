@@ -78,6 +78,9 @@ function renderBreweries() {
     const breweryLocation = document.createElement('p');
     breweryLocation.textContent = `${brewery.location}`;
 
+    const addTap = document.createElement('button');
+    addTap.textContent = 'Add Draft'
+
     const tapsList = document.createElement('div');
     brewery.taps.forEach(tap => {
       const beer = beers.find(beer => beer.id === tap.beerId);
@@ -94,6 +97,7 @@ function renderBreweries() {
     breweryElement.appendChild(breweryName);
     breweryElement.appendChild(breweryLocation);
     breweryElement.appendChild(tapsList);
+    breweryElement.appendChild(addTap);
     appElement.appendChild(breweryElement);
   });
 }
