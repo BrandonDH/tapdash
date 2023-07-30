@@ -1,16 +1,6 @@
 // Sample data for breweries and beers (Replace this with your actual data)
 const breweries = [
   {
-    id: 1,
-    name: 'StrangeBird',
-    location: 'New York',
-    taps: [
-      { beerId: 1, duration: 180 }, // Beer 1 will be available for 3 hours (180 minutes)
-      { beerId: 2, duration: 120 }, // Beer 2 will be available for 2 hours (120 minutes)
-      { beerId: 3, duration: 300 }, // Beer 2 will be available for 2 hours (120 minutes)
-    ],
-  },
-  {
     id: 2,
     name: 'BayBerry Beer Hall',
     location: 'Rhode Island',
@@ -21,6 +11,16 @@ const breweries = [
       { beerId: 7, duration: 100 }, // Beer 4 will be available for 5 hours (300 minutes)
     ],
   },
+  {
+    id: 1,
+    name: 'StrangeBird',
+    location: 'New York',
+    taps: [
+      { beerId: 1, duration: 180 }, // Beer 1 will be available for 3 hours (180 minutes)
+      { beerId: 2, duration: 120 }, // Beer 2 will be available for 2 hours (120 minutes)
+      { beerId: 3, duration: 300 }, // Beer 2 will be available for 2 hours (120 minutes)
+    ],
+  }
 ];
 
 const beers = [
@@ -37,7 +37,7 @@ const beers = [
 function updateTapRemainingTime(tapItem, remainingTimeInSeconds) {
   const minutes = Math.floor(remainingTimeInSeconds / 60);
   const seconds = remainingTimeInSeconds % 60;
-  tapItem.innerHTML = `🍺 <strong>${tapItem.dataset.beerName}</strong> <em>${tapItem.dataset.beerStyle}</em> </br> Keg kicks in ${minutes} min ${seconds} sec <hr>`;
+  tapItem.innerHTML = `🍺 <span class="td-beer-name">${tapItem.dataset.beerName}</span> <em>${tapItem.dataset.beerStyle}</em> </br> Keg kicks in ${minutes} min ${seconds} sec <hr>`;
 }
 
 // Function to update the tap durations every second
@@ -76,7 +76,7 @@ function renderBreweries() {
     breweryName.textContent = brewery.name;
 
     const breweryLocation = document.createElement('p');
-    breweryLocation.textContent = `Location: ${brewery.location}`;
+    breweryLocation.textContent = `${brewery.location}`;
 
     const tapsList = document.createElement('div');
     brewery.taps.forEach(tap => {
